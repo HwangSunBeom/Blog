@@ -1,10 +1,18 @@
-module.exports = {
-  webpack(config) {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: [`@svgr/webpack`],
-    });
+/** @type {import('next').NextConfig} */
 
-    return config;
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  images: {
+    domains: ["localhost"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+        port: "",
+      },
+    ],
   },
 };
+
+module.exports = nextConfig;
